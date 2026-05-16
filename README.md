@@ -1,4 +1,6 @@
 ## 一款基于Pengu Loader的全服可用英雄联盟客户端增强插件
+
+> **社区增强版** — 修复了换楼数据刷新、窗口尺寸异常等 bug，新增 PLAY 自动目标队列等功能。详见 [COMMUNITY_CHANGELOG.md](./COMMUNITY_CHANGELOG.md)
 <!-- PROJECT SHIELDS -->
 
 <div align="center">
