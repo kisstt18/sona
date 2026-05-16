@@ -140,6 +140,12 @@ export interface SonaConfig {
   autoReturnMode: string
   /** 修复客户端窗口异常（最小化恢复或子窗口尺寸异常时自动校正） */
   fixLcuWindow: boolean
+  /** 自动领取战利品（活动代币/通行证奖励等） */
+  autoClaimLoot: boolean
+  /** 一键卸下所有勋章/纹章 */
+  removeRegalia: boolean
+  /** 对局结束后自动关闭游戏进程 */
+  autoCloseGame: boolean
 }
 
 
@@ -195,6 +201,9 @@ const DEFAULT_CONFIG: SonaConfig = {
   autoReturnToLobby: false,
   autoReturnMode: 'queue',
   fixLcuWindow: false,
+  autoClaimLoot: false,
+  removeRegalia: false,
+  autoCloseGame: false,
 }
 
 

@@ -109,6 +109,9 @@ export function ToolsPage() {
   const [hideTFT, setHideTFT] = useState(store.get('hideTFT'))
   const [hideRightNavText, setHideRightNavText] = useState(store.get('hideRightNavText'))
   const [fixLcuWindow, setFixLcuWindow] = useState(store.get('fixLcuWindow'))
+  const [autoClaimLoot, setAutoClaimLoot] = useState(store.get('autoClaimLoot'))
+  const [removeRegalia, setRemoveRegalia] = useState(store.get('removeRegalia'))
+  const [autoCloseGame, setAutoCloseGame] = useState(store.get('autoCloseGame'))
   const [windowEffect, setWindowEffect] = useState(store.get('windowEffect'))
   const [champSelectAssist, setChampSelectAssist] = useState(store.get('champSelectAssist'))
   const [opggBuildRecommendation, setOpggBuildRecommendation] = useState(store.get('opggBuildRecommendation'))
@@ -165,6 +168,9 @@ export function ToolsPage() {
       store.onChange('benchNoCooldown', setBenchNoCooldown),
       store.onChange('hideTFT', setHideTFT),
       store.onChange('fixLcuWindow', setFixLcuWindow),
+      store.onChange('autoClaimLoot', setAutoClaimLoot),
+      store.onChange('removeRegalia', setRemoveRegalia),
+      store.onChange('autoCloseGame', setAutoCloseGame),
       store.onChange('windowEffect', setWindowEffect),
       store.onChange('champSelectAssist', setChampSelectAssist),
       store.onChange('opggBuildRecommendation', setOpggBuildRecommendation),
@@ -464,6 +470,24 @@ export function ToolsPage() {
           />
         </SettingCard>
         <SettingCard
+          title="对局结束自动关闭游戏"
+          description="对局结束后自动关闭游戏进程，快速回到客户端。"
+        >
+          <SonaSwitch
+            checked={autoCloseGame}
+            onChange={(v) => { setAutoCloseGame(v); store.set('autoCloseGame', v) }}
+          />
+        </SettingCard>
+        <SettingCard
+          title="自动领取战利品"
+          description="一键自动领取所有活动代币、通行证奖励等可合成战利品。"
+        >
+          <SonaSwitch
+            checked={autoClaimLoot}
+            onChange={(v) => { setAutoClaimLoot(v); store.set('autoClaimLoot', v) }}
+          />
+        </SettingCard>
+        <SettingCard
           title="秒抢英雄"
           description="进入可选英雄的模式时，轮到自己自动秒锁指定英雄。大乱斗等无需选人的模式不受影响。"
         >
@@ -588,6 +612,15 @@ export function ToolsPage() {
           }}>
             卸下
           </SonaButton>
+        </SettingCard>
+        <SettingCard
+          title="一键卸下勋章"
+          description="清除当前装备的所有勋章/纹章装饰。"
+        >
+          <SonaSwitch
+            checked={removeRegalia}
+            onChange={(v) => { setRemoveRegalia(v); store.set('removeRegalia', v) }}
+          />
         </SettingCard>
         <SettingCard
           title="自定义生涯背景"
