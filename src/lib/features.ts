@@ -27,6 +27,7 @@ import { updateCustomBanner } from '@/lib/features/custom-banner'
 import { updateGameAnalysisPopup } from '@/lib/features/game-analysis-popup'
 import { updateAutoReturnToLobby } from '@/lib/features/auto-return-to-lobby'
 import { updateFixLcuWindow } from '@/lib/features/fix-lcu-window'
+import { updateAutoTargetQueue } from '@/lib/features/auto-target-queue'
 import { updateOpggBuildRecommendation } from '@/lib/features/opgg-build-recommendation'
 import { preloadChampSelectTierBadgeData, updateChampSelectTierBadge } from '@/lib/features/champselect-tier-badge'
 import { setAvailabilityHijackEnabled, setHideTFTEnabled, setHideRightNavTextEnabled } from '@/lib/injections'
@@ -852,6 +853,8 @@ export function initFeatures() {
   store.onChange('autoReturnToLobby', updateAutoReturnToLobby)
   updateFixLcuWindow(store.get('fixLcuWindow'))
   store.onChange('fixLcuWindow', updateFixLcuWindow)
+  updateAutoTargetQueue(store.get('autoTargetQueue'))
+  store.onChange('autoTargetQueue', updateAutoTargetQueue)
   store.onChange('autoReturnMode', () => {
     // 模式变化时，如果功能已启用，重新注册以应用新模式
     if (store.get('autoReturnToLobby')) {
